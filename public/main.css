@@ -1,0 +1,11 @@
+
+.display {
+z-index: 0;
+position: relative;
+background-color: lightblue;
+text-align: center;
+margin: 20%;
+border: 5px solid black;
+padding: 10px;
+}
+
