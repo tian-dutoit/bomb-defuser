@@ -35,12 +35,6 @@ class App extends React.Component {
     return _.random(20, 100)
   }
 
-  // handleCircleClick() {
-  //   const currentScore = this.state.count + 1
-  //   this.setState()
-  //   count: currentScore
-  // }
-
   startGame () {
     this.setState({
       showInstructions: false
@@ -67,7 +61,7 @@ class App extends React.Component {
         <div>
           {this.state.showInstructions && <Landing start={this.startGame} />}
         </div>
-        <div>
+        <div className='display'>
           {/* <Timer /> */}
           <Counter count={this.state.count}/>
         </div>
