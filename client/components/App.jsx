@@ -64,16 +64,19 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <svg width={this.props.width} height={this.props.height}>
+      <div className='body'>
+        {this.state.showInstructions && <Landing start={this.startGame} />}
+        <svg className='circle' width={this.props.width} height={this.props.height}>
           <Circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} circleClick= {this.handleCircleClick}/>
         </svg>
-        <div>
-          {this.state.showInstructions && <Landing start={this.startGame} />}
-        </div>
         <div className='display'>
-          <Timer time={this.state.time}/>
-          <Counter count={this.state.count}/>
+          <div className='score'>
+            <Counter count={this.state.count}/>
+          </div>
+          <div className='timer'>
+            <Timer time={this.state.time}/>
+          </div>
+
         </div>
       </div>
     )
