@@ -18295,6 +18295,10 @@ var _Circle = __webpack_require__(32);
 
 var _Circle2 = _interopRequireDefault(_Circle);
 
+var _Counter = __webpack_require__(33);
+
+var _Counter2 = _interopRequireDefault(_Counter);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18372,7 +18376,16 @@ var App = function (_React$Component) {
           { width: this.props.width, height: this.props.height },
           _react2.default.createElement(_Circle2.default, { cx: this.state.cx, cy: this.state.cy, r: this.state.r, circleClick: this.handleCircleClick })
         ),
-        _react2.default.createElement(_Landing2.default, { start: this.startGame })
+        _react2.default.createElement(
+          'div',
+          null,
+          this.state.showInstructions && _react2.default.createElement(_Landing2.default, { start: this.startGame })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'display' },
+          _react2.default.createElement(_Counter2.default, { count: this.state.count })
+        )
       );
     }
   }]);
@@ -35652,7 +35665,7 @@ var Circle = function (_React$Component) {
 exports.default = Circle;
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
