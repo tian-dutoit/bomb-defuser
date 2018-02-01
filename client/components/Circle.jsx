@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class Circle extends React.Component {
   constructor (props) {
     super(props)
@@ -11,11 +10,7 @@ class Circle extends React.Component {
 
   render () {
     return (
-      <svg>
-        <circle cx={this.props.cx} cy={this.props.cy} r={this.props.r} onClick = {this.props.circleClick}/>
-
-      </svg>
-
+      <circle cx={this.props.cx} cy={this.props.cy} r={this.props.r} onClick = {this.props.circleClick}/>
     )
   }
 }
