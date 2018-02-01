@@ -1,4 +1,6 @@
 import React from 'react'
+import _ from 'lodash'
+
 import Landing from './Landing'
 import Circle from './Circle'
 import Counter from './Counter'
@@ -15,7 +17,22 @@ class App extends React.Component {
       showInstructions: true
     }
     this.startGame = this.startGame.bind(this)
-    // this.handleCircleClick = this.handleCircleClick.bind(this)
+    this.handleCircleClick = this.handleCircleClick.bind(this)
+    this.randomiseHeight = this.randomiseHeight.bind(this)
+    this.randomiseWidth = this.randomiseWidth.bind(this)
+    this.randomiseRadius = this.randomiseRadius.bind(this)
+  }
+
+  randomiseWidth () {
+    return _.random(100, this.props.width - 100)
+  }
+
+  randomiseHeight () {
+    return _.random(100, this.props.height - 100)
+  }
+
+  randomiseRadius () {
+    return _.random(20, 100)
   }
 
   // handleCircleClick() {
@@ -30,14 +47,25 @@ class App extends React.Component {
     })
   }
 
+  handleCircleClick () {
+    const currentScore = this.state.count + 1
+    const random = this.randomiseRadius()
+    this.setState({
+      cx: this.randomiseWidth(),
+      cy: this.randomiseHeight(),
+      r: random,
+      count: currentScore
+    })
+  }
+
   render () {
     return (
       <div>
+        <svg width={this.props.width} height={this.props.height}>
+          <Circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} circleClick= {this.handleCircleClick}/>
+        </svg>
         <div>
           {this.state.showInstructions && <Landing start={this.startGame} />}
-        </div>
-        <div>
-          <Circle cx={this.state.cx} cy={this.state.cy}/>
         </div>
         <div>
           {/* <Timer /> */}
