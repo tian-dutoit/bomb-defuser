@@ -1,10 +1,20 @@
 import React from 'react'
+import Landing from './Landing'
 
 const App = () => {
+
+  startGame() {
+    this.setState ({
+      this.showInstructions = false
+    })
+  }
+  
   return (
-    <h1>React development has begun!</h1>
+    <div>
+      <h1>Bomb Defuser</h1>
+      <Landing/>
+    </div>
   )
 }
 
 export default App
-
