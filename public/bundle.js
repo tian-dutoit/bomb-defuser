@@ -18295,6 +18295,14 @@ var _Circle = __webpack_require__(32);
 
 var _Circle2 = _interopRequireDefault(_Circle);
 
+var _Counter = __webpack_require__(33);
+
+var _Counter2 = _interopRequireDefault(_Counter);
+
+var _Timer = __webpack_require__(34);
+
+var _Timer2 = _interopRequireDefault(_Timer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18345,9 +18353,20 @@ var App = function (_React$Component) {
   }, {
     key: 'startGame',
     value: function startGame() {
+      var _this2 = this;
+
       this.setState({
         showInstructions: false
       });
+      setInterval(function () {
+        var currentTime = _this2.state.time - 1;
+        _this2.setState({
+          time: currentTime
+        });
+        if (_this2.state.time === 0) {
+          alert('Oh No!');
+        }
+      }, 1000);
     }
   }, {
     key: 'handleCircleClick',
@@ -18372,7 +18391,17 @@ var App = function (_React$Component) {
           { width: this.props.width, height: this.props.height },
           _react2.default.createElement(_Circle2.default, { cx: this.state.cx, cy: this.state.cy, r: this.state.r, circleClick: this.handleCircleClick })
         ),
-        _react2.default.createElement(_Landing2.default, { start: this.startGame })
+        _react2.default.createElement(
+          'div',
+          null,
+          this.state.showInstructions && _react2.default.createElement(_Landing2.default, { start: this.startGame })
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Timer2.default, { time: this.state.time }),
+          _react2.default.createElement(_Counter2.default, { count: this.state.count })
+        )
       );
     }
   }]);
@@ -35638,11 +35667,7 @@ var Circle = function (_React$Component) {
   _createClass(Circle, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'svg',
-        null,
-        _react2.default.createElement('circle', { cx: this.props.cx, cy: this.props.cy, r: this.props.r, onClick: this.props.circleClick })
-      );
+      return _react2.default.createElement('circle', { cx: this.props.cx, cy: this.props.cy, r: this.props.r, onClick: this.props.circleClick });
     }
   }]);
 
@@ -35652,7 +35677,7 @@ var Circle = function (_React$Component) {
 exports.default = Circle;
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35714,6 +35739,66 @@ var Counter = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Counter;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Timer = function (_React$Component) {
+  _inherits(Timer, _React$Component);
+
+  function Timer() {
+    _classCallCheck(this, Timer);
+
+    return _possibleConstructorReturn(this, (Timer.__proto__ || Object.getPrototypeOf(Timer)).apply(this, arguments));
+  }
+
+  _createClass(Timer, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Timer:'
+        ),
+        _react2.default.createElement(
+          'h2',
+          null,
+          '00:',
+          this.props.time
+        )
+      );
+    }
+  }]);
+
+  return Timer;
+}(_react2.default.Component);
+
+exports.default = Timer;
 
 /***/ })
 /******/ ]);

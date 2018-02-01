@@ -4,6 +4,7 @@ import _ from 'lodash'
 import Landing from './Landing'
 import Circle from './Circle'
 import Counter from './Counter'
+import Timer from './Timer'
 
 class App extends React.Component {
   constructor (props) {
@@ -35,16 +36,20 @@ class App extends React.Component {
     return _.random(20, 100)
   }
 
-  // handleCircleClick() {
-  //   const currentScore = this.state.count + 1
-  //   this.setState()
-  //   count: currentScore
-  // }
 
   startGame () {
     this.setState({
       showInstructions: false
     })
+    setInterval(() => {
+      const currentTime = this.state.time - 1
+      this.setState({
+        time: currentTime
+      })
+      if (this.state.time === 0) {
+        alert('Oh No!')
+      }
+    }, 1000)
   }
 
   handleCircleClick () {
@@ -68,7 +73,7 @@ class App extends React.Component {
           {this.state.showInstructions && <Landing start={this.startGame} />}
         </div>
         <div>
-          {/* <Timer /> */}
+          <Timer time={this.state.time}/>
           <Counter count={this.state.count}/>
         </div>
       </div>
