@@ -18291,6 +18291,10 @@ var _Circle = __webpack_require__(29);
 
 var _Circle2 = _interopRequireDefault(_Circle);
 
+var _Counter = __webpack_require__(30);
+
+var _Counter2 = _interopRequireDefault(_Counter);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18311,13 +18315,20 @@ var App = function (_React$Component) {
       cx: props.width / 3,
       cy: props.height / 3,
       r: 60,
-      score: 0,
+      count: 0,
       time: 15,
       showInstructions: true
     };
     _this.startGame = _this.startGame.bind(_this);
+    // this.handleCircleClick = this.handleCircleClick.bind(this)
     return _this;
   }
+
+  // handleCircleClick() {
+  //   const currentScore = this.state.count + 1
+  //   this.setState()
+  //   count: currentScore
+  // }
 
   _createClass(App, [{
     key: 'startGame',
@@ -18332,8 +18343,21 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Circle2.default, { cx: this.state.cx, cy: this.state.cy }),
-        _react2.default.createElement(_Landing2.default, { start: this.startGame })
+        _react2.default.createElement(
+          'div',
+          null,
+          this.state.showInstructions && _react2.default.createElement(_Landing2.default, { start: this.startGame })
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Circle2.default, { cx: this.state.cx, cy: this.state.cy })
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Counter2.default, { count: this.state.count })
+        )
       );
     }
   }]);
@@ -18464,6 +18488,70 @@ var Circle = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Circle;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Counter = function (_React$Component) {
+  _inherits(Counter, _React$Component);
+
+  function Counter() {
+    _classCallCheck(this, Counter);
+
+    var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this));
+
+    _this.state = {
+      hello: null
+    };
+    return _this;
+  }
+
+  _createClass(Counter, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Count:'
+        ),
+        _react2.default.createElement(
+          'h2',
+          null,
+          this.props.count
+        )
+      );
+    }
+  }]);
+
+  return Counter;
+}(_react2.default.Component);
+
+exports.default = Counter;
 
 /***/ })
 /******/ ]);
