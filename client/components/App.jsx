@@ -1,7 +1,9 @@
 import React from 'react'
+import Landing from './Landing'
+import Circle from './Circle'
 
-class App extends React.Compnent {
-  constructor(props) {
+class App extends React.Component {
+  constructor (props) {
     super(props)
     this.state = {
       cx: props.width / 3,
@@ -9,21 +11,27 @@ class App extends React.Compnent {
       r: 60,
       score: 0,
       time: 15,
-      showInstructions: "true"
+      showInstructions: true
     }
+    this.startGame = this.startGame.bind(this)
+  }
 
+  startGame () {
+    this.setState({
+      showInstructions: false
+    })
   }
 
   render () {
     return (
-      <Circle cx={this.state.cx} cy={this.state.cy}/>
-      //<Timer />
-      //<Counter />
-      //<Landing />
+      <div>
+        <Circle cx={this.state.cx} cy={this.state.cy}/>
+        {/* <Timer />
+    <Counter /> */}
+        <Landing start={this.startGame}/>
+      </div>
     )
   }
-
 }
 
 export default App
-
