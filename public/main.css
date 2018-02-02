@@ -24,6 +24,7 @@ body {
   z-index: 2;
   position: relative;
   background-color: transparent;
+  fill: orangered;
 }
 
 .landing {
@@ -37,7 +38,7 @@ body {
   background-color: rgb(14, 14, 14);
   border-radius: 10%;
   text-align: center;
-  font-size: 72px;
+  font-size: 3em;
 }
 
 .start {
@@ -55,7 +56,7 @@ body {
 
 .display {
 border-radius: 5%;  
-min-height: 275px;
+/* min-height: 275px; */
 position: absolute;
 background-color: rgb(14, 14, 14);
 text-align: center;
