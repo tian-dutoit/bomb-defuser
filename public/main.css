@@ -1,9 +1,17 @@
+@font-face {
+  font-family: 'Ticking Time Bomb';
+  src: url('fonts/TickingTimebombBB.ttf');
+}
+
 body {
   z-index: 0;
   position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
+  background: url('images/circuit.jpg') no-repeat;
+  background-size: 100%;
+  background-position: absolute;
 
 }
 
@@ -23,26 +31,34 @@ body {
 }
 
 .display {
+min-height: 275px;
 position: absolute;
 background-color: lightblue;
 text-align: center;
-margin: 20%;
+margin-top: 20%;
+margin-left: 25%;
+margin-right: 25%;
 border: 5px solid black;
 padding: 10px;
 align-self: center;
 top: 0px;
 right: 0px;
-bottom: 0px;
+/* bottom: 0px; */
 left: 0px;
 }
 
 .timer {
-  position: relative;
+  font-family: 'Ticking Time Bomb';
+  font-size: 70px;
+  color: red;
   background-color: lightblue;
   text-align: center;
   margin-top: 5%;
-  border: 5px solid black;
-  padding: 10px;
+  /* border: 5px solid black; */
+  padding: 5px;
+  width: 150;
+  height: 200px;
+  /* justify-items: center; */
 }
 
 .score {
@@ -53,4 +69,5 @@ left: 0px;
   border: 5px solid black;
   padding: 10px;
 }
+
 
