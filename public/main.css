@@ -31,20 +31,19 @@ body {
 }
 
 .display {
-min-height: 275px;
-position: absolute;
-background-color: lightblue;
-text-align: center;
-margin-top: 20%;
-margin-left: 25%;
-margin-right: 25%;
-border: 5px solid black;
-padding: 10px;
-align-self: center;
-top: 0px;
-right: 0px;
-/* bottom: 0px; */
-left: 0px;
+  min-height: 275px;
+  position: absolute;
+  background-color: lightblue;
+  text-align: center;
+  margin-top: 20%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border: 5px solid black;
+  padding: 10px;
+  align-self: center;
+  top: 0px;
+  right: 0px;
+  left: 0px;
 }
 
 .timer {
@@ -54,11 +53,9 @@ left: 0px;
   background-color: lightblue;
   text-align: center;
   margin-top: 5%;
-  /* border: 5px solid black; */
   padding: 5px;
   width: 150;
   height: 200px;
-  /* justify-items: center; */
 }
 
 .score {
@@ -70,4 +67,28 @@ left: 0px;
   padding: 10px;
 }
 
+.win{
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: lightblue;
+  text-align: center;
+}
 
+.winImage{
+  max-width: 50%;
+}
+
+.lose{
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: lightblue;
+  text-align: center;
+}
+
+.loseImage{
+  max-width: 50%;
+}
